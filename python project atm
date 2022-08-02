@@ -43,9 +43,9 @@ def wanted_details(card_no):
     elif(detail_val==2):
         withdrawl_money=int(input('enter amount of money to deposite'))
         if(withdrawl_money>int(user_details[card_no][2])):
-            print("")
+            print("----------------------------------")
             print("your account balance is insufficent")
-            print(" ")
+            print(" -----------------------------------")
             return 1
         user_details[card_no][2]=str(int(user_details[card_no][2])-withdrawl_money)
     elif(detail_val==3):
@@ -76,7 +76,7 @@ while(True):
                 break
         time.sleep(1)
         print("--------------------------------------------------------")
-        print("This is your card number",card_no)
+        print("This is your Bank book number",card_no)
         print("This is your temporary password",temporary_password)
         
         
@@ -86,7 +86,7 @@ while(True):
     print("Enter password")
     password=input()
     if card_no not in username_password_details.keys():
-        print("enter a valid card no")
+        print("enter a Bank book no")
         print("-----------------------------------------")
     elif(username_password_details[card_no]!=password):
         print("password is incorrect")
