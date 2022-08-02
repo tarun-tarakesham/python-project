@@ -58,41 +58,46 @@ def wanted_details(card_no):
         return 0;
 print("Welcome to HDFC Bank")
 print("--------------------")
-print("1)Enter 1 if you have Bank Account")
-print("2)Enter 2 if you don't have Bank Account")
-account_having_or_not=int(input())
-if(account_having_or_not==2):
-    while(True):
-        card_no=str(random.randint(10000001, 99999999))
-        if card_no not in username_password_details.keys():
-            username_password_details[card_no]=card_no[-4:]
-            temporary_password=card_no[-4:]
-            user_details[card_no]=['null_name','null_age','null_amount','null_address']
-            user_details[card_no][0]=input('enter your name')
-            user_details[card_no][1]=input('enter your age')
-            user_details[card_no][2]=input('eneter the amount you want to deposit')
-            user_details[card_no][3]=input('enter you current address')
-            break
-    time.sleep(1)
-    print("--------------------------------------------------------")
-    print("This is your card number",card_no)
-    print("This is your temporary password",temporary_password)
-    
-    
-    
-print("Enter your Bank Account Number")
-card_no=input()
-print("Enter password")
-password=input()
-if card_no not in username_password_details.keys():
-    print("enter a valid card no")
-elif(username_password_details[card_no]!=password):
-    print("password is incorrect")
-elif(username_password_details[card_no]==password):
-    count=0
-    while(count<10):
-        val=wanted_details(card_no)
-        if(val==0):
-            break
-        count+=1
+while(True):
+    print("1)Enter 1 if you have Bank Account")
+    print("2)Enter 2 if you don't have Bank Account")
+    account_having_or_not=int(input())
+    if(account_having_or_not==2):
+        while(True):
+            card_no=str(random.randint(10000001, 99999999))
+            if card_no not in username_password_details.keys():
+                username_password_details[card_no]=card_no[-4:]
+                temporary_password=card_no[-4:]
+                user_details[card_no]=['null_name','null_age','null_amount','null_address']
+                user_details[card_no][0]=input('enter your name')
+                user_details[card_no][1]=input('enter your age')
+                user_details[card_no][2]=input('eneter the amount you want to deposit')
+                user_details[card_no][3]=input('enter you current address')
+                break
+        time.sleep(1)
+        print("--------------------------------------------------------")
+        print("This is your card number",card_no)
+        print("This is your temporary password",temporary_password)
         
+        
+    breakthecondition=1;
+    print("Enter your Bank Account Number")
+    card_no=input()
+    print("Enter password")
+    password=input()
+    if card_no not in username_password_details.keys():
+        print("enter a valid card no")
+        print("-----------------------------------------")
+    elif(username_password_details[card_no]!=password):
+        print("password is incorrect")
+    elif(username_password_details[card_no]==password):
+        count=0
+        while(count<10):
+            val=wanted_details(card_no)
+            if(val==0):
+                breakthecondition=0
+                break
+            count+=1
+    if(breakthecondition==0):
+        break
+            
